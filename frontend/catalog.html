@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог автомобилей — CarSharing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">CAR<span>SHARING</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html" class="active">Автомобили</a></li>
+                    <li><a href="tariffs.html">Тарифы</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div style="display: flex; align-items: center; gap: 24px;">
+                    <a href="register.html" id="reg-link">Регистрация</a>
+                    <a href="login.html" class="btn btn-primary">Войти</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="catalog-hero">
+        <div class="container">
+            <h1>Каталог автомобилей</h1>
+            <p>Выберите идеальный автомобиль для вашей поездки</p>
+        </div>
+    </section>
+
+    <section class="catalog-section">
+        <div class="container">
+            <div class="catalog-layout">
+
+                <aside class="filters">
+
+                    <div class="filter-header">
+                        <h3>Фильтры</h3>
+                        <button class="reset-filters">Сбросить</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Класс автомобиля</label>
+
+                        <div class="checkbox-group">
+
+                            <label class="checkbox">
+                                <input type="checkbox" name="class" value="economy">
+                                <span>Эконом</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name="class" value="comfort">
+                                <span>Комфорт</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name="class" value="business">
+                                <span>Бизнес</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox" name="class" value="premium">
+                                <span>Премиум</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Тип двигателя</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="engine" value="petrol">
+                                <span>Бензин</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="engine" value="diesel">
+                                <span>Дизель</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="engine" value="electric">
+                                <span>Электро</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="engine" value="hybrid">
+                                <span>Гибрид</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Цена в минуту</label>
+                        <div class="price-range">
+                            <input type="range" min="5" max="50" value="50" class="range-slider">
+
+                            <div class="price-values">
+                                <span>5 ₽</span>
+                                <span>50 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Трансмиссия</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="transmission" value="automatic">
+                                <span>Автомат</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="transmission" value="manual">
+                                <span>Механика</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary apply-filters">Показать 12 авто</button>
+                </aside>
+
+                <main class="catalog-content">
+
+                    <div class="catalog-header">
+
+                        <div class="sort-options">
+                            <span>Сортировать:</span>
+                            <select class="sort-select">
+                                <option value="popular">По популярности</option>
+                                <option value="price-asc">По цене (возрастание)</option>
+                                <option value="price-desc">По цене (убывание)</option>
+                                <option value="newest">Новинки</option>
+                            </select>
+                        </div>
+
+                        <div class="view-toggle">
+
+                            <button class="view-btn active" data-view="grid">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <rect x="2" y="2" width="7" height="7" rx="1"/>
+                                    <rect x="11" y="2" width="7" height="7" rx="1"/>
+                                    <rect x="2" y="11" width="7" height="7" rx="1"/>
+                                    <rect x="11" y="11" width="7" height="7" rx="1"/>
+                                </svg>
+                            </button>
+
+                            <button class="view-btn" data-view="list">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <rect x="2" y="3" width="16" height="4" rx="1"/>
+                                    <rect x="2" y="9" width="16" height="4" rx="1"/>
+                                    <rect x="2" y="15" width="16" height="4" rx="1"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="fleet-grid">
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/tesla.png" alt="Tesla Model 3">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>Tesla Model 3</h3>
+                                <p>Электромобиль • Автопилот</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 4.2 сек до 100 км/ч</span>
+                                    <span class="spec">🔋 560 км запас</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">25 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/bmw.png" alt="BMW 3 Series">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>BMW 3 Series</h3>
+                                <p>Бизнес-класс • Комфорт</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 5.9 сек до 100 км/ч</span>
+                                    <span class="spec">⛽ Бензин</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">18 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/vw-polo.png" alt="Volkswagen Polo">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>Volkswagen Polo</h3>
+                                <p>Эконом • Для города</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 10.5 сек до 100 км/ч</span>
+                                    <span class="spec">⛽ Бензин</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">12 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/tesla.png" alt="Tesla Model S">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>Tesla Model S</h3>
+                                <p>Премиум • Автопилот</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 2.1 сек до 100 км/ч</span>
+                                    <span class="spec">🔋 650 км запас</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">45 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/bmw.png" alt="BMW X5">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>BMW X5</h3>
+                                <p>Премиум • Внедорожник</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 5.5 сек до 100 км/ч</span>
+                                    <span class="spec">⛽ Дизель</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">35 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="car-card">
+                            <div class="car-image">
+                                <img src="images/vw-polo.png" alt="Volkswagen Golf">
+                                <button class="favorite-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3>Volkswagen Golf</h3>
+                                <p>Комфорт • Хэтчбек</p>
+                                <div class="car-specs">
+                                    <span class="spec">⚡ 8.5 сек до 100 км/ч</span>
+                                    <span class="spec">⛽ Бензин</span>
+                                </div>
+                                <div class="car-price">
+                                    <span class="price">15 ₽ <span>/ мин</span></span>
+                                    <a href="car-detail.html" class="btn btn-outline">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">→</button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресс-центр</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Правовая информация</h4>
+                    <ul>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Конфиденциальность</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Соцсети</h4>
+                    <ul>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VK</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 CarSharing. Все права защищены.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

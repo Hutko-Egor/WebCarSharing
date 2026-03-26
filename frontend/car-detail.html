@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Model 3 — CarSharing</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="car-detail.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">CAR<span>SHARING</span></a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Автомобили</a></li>
+                    <li><a href="tariffs.html">Тарифы</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+
+                <div style="display: flex; align-items: center; gap: 24px;">
+                    <a href="register.html" id="reg-link">Регистрация</a>
+                    <a href="login.html" class="btn btn-primary">Войти</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="car-detail">
+        <div class="container">
+
+            <div class="breadcrumb">
+
+                <a href="index.html">Главная</a>
+                <span>/</span>
+
+                <a href="catalog.html">Каталог</a>
+                <span>/</span>
+
+                <span>Tesla Model 3</span>
+            </div>
+
+            <div class="car-detail-grid">
+
+                <div class="car-gallery">
+
+                    <div class="main-image">
+
+                        <img src="images/tesla.png" alt="Tesla Model 3">
+
+                        <button class="favorite-btn active">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="thumbnail-list">
+
+                        <button class="thumbnail active">
+                            <img src="images/tesla.png" alt="Tesla Model 3">
+                        </button>
+
+                        <button class="thumbnail">
+                            <img src="images/tesla.png" alt="Tesla Model 3">
+                        </button>
+
+                        <button class="thumbnail">
+                            <img src="images/tesla.png" alt="Tesla Model 3">
+                        </button>
+
+                        <button class="thumbnail">
+                            <img src="images/tesla.png" alt="Tesla Model 3">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="car-info-panel">
+
+                    <div class="car-header">
+
+                        <h1>Tesla Model 3</h1>
+
+                        <div class="car-tags">
+                            <span class="tag">Электромобиль</span>
+                            <span class="tag">Автопилот</span>
+                            <span class="tag">Премиум</span>
+                        </div>
+                    </div>
+
+                    <div class="price-block">
+                        <div class="price-main">
+                            <span class="price-value">25 ₽</span>
+                            <span class="price-period">/ мин</span>
+                        </div>
+
+                        <div class="price-alt">
+                            <span>1200 ₽ / час</span>
+                        </div>
+                    </div>
+
+                    <div class="car-specs-grid">
+
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <div>
+                                <span class="spec-label">Разгон 0-100</span>
+                                <span class="spec-value">4.2 сек</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <span class="spec-icon">🔋</span>
+                            <div>
+                                <span class="spec-label">Запас хода</span>
+                                <span class="spec-value">560 км</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <span class="spec-icon">🚀</span>
+                            <div>
+                                <span class="spec-label">Мощность</span>
+                                <span class="spec-value">450 л.с.</span>
+                            </div>
+                        </div>
+
+                        <div class="spec-item">
+                            <span class="spec-icon">⚙️</span>
+                            <div>
+                                <span class="spec-label">Привод</span>
+                                <span class="spec-value">Полный</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-form">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label>Дата начала</label>
+                                <input type="date" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Время</label>
+                                <input type="time" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label>Длительность</label>
+                                <select class="form-input">
+                                    <option>30 минут</option>
+                                    <option>1 час</option>
+                                    <option>2 часа</option>
+                                    <option>3 часа</option>
+                                    <option>4 часа</option>
+                                    <option>На весь день</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Тариф</label>
+                                <select class="form-input">
+                                    <option>Минуты</option>
+                                    <option>Часы</option>
+                                    <option>День</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="estimated-cost">
+                            <span>Примерная стоимость:</span>
+                            <span class="cost-value">750 ₽</span>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Забронировать</button>
+                        <button class="btn btn-outline btn-block">Поделиться</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="car-description">
+
+                <h2>Описание автомобиля</h2>
+
+                <div class="description-content">
+                    <p>
+                        Tesla Model 3 — это электромобиль премиум-класса, который сочетает в себе передовые технологии, выдающуюся производительность и экологичность. Идеальный выбор для тех, кто ценит инновации и комфорт.
+                    </p>
+
+                    <p>
+                        Автомобиль оснащен системой автопилота, которая помогает водителю на дороге, а также большим сенсорным экраном для управления всеми функциями автомобиля. Запас хода до 560 км позволяет совершать длительные поездки без частой подзарядки.
+                    </p>
+
+                    <h3>Комплектация</h3>
+
+                    <ul class="features-list">
+                        <li>Автопилот</li>
+                        <li>Панорамная крыша</li>
+                        <li>Подогрев сидений</li>
+                        <li>Климат-контроль</li>
+                        <li>Навигационная система</li>
+                        <li>Bluetooth</li>
+                        <li>Камера заднего вида</li>
+                        <li>Парктроник</li>
+                        <li>Беспроводная зарядка для телефона</li>
+                        <li>Премиум аудиосистема</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="car-reviews">
+
+                <h2>Отзывы</h2>
+
+                <div class="reviews-list">
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">А</div>
+                                <div>
+                                    <span class="reviewer-name">Алексей М.</span>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <span class="review-date">12 марта 2026</span>
+                        </div>
+                        <p class="review-text">
+                            Отличный автомобиль! Очень быстрый и комфортный. Автопилот реально помогает в пробках. Обязательно возьму ещё раз.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">Д</div>
+                                <div>
+                                    <span class="reviewer-name">Дмитрий К.</span>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                            </div>
+                            <span class="review-date">8 марта 2026</span>
+                        </div>
+                        <p class="review-text">
+                            Первый раз пробую электромобиль и я в восторге! Тишина, плавность хода и динамика — всё на высоте. Зарядки хватило на весь день.
+                        </p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer">
+                                <div class="avatar">Е</div>
+                                <div>
+                                    <span class="reviewer-name">Елена С.</span>
+                                    <div class="review-rating">★★★★☆</div>
+                                </div>
+                            </div>
+                            <span class="review-date">5 марта 2026</span>
+                        </div>
+                        <p class="review-text">
+                            Машина супер, но хотелось бы больше зарядных станций в городе. В остальном — идеально для города.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="review-form">
+                    <h3>Оставить отзыв</h3>
+
+                    <div class="rating-input">
+                        <span>Ваша оценка:</span>
+
+                        <div class="stars">
+                            <button>★</button>
+                            <button>★</button>
+                            <button>★</button>
+                            <button>★</button>
+                            <button>★</button>
+                        </div>
+                    </div>
+
+                    <textarea class="form-input review-textarea" placeholder="Напишите ваш отзыв..."></textarea>
+
+                    <button class="btn btn-primary">Отправить отзыв</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресс-центр</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Правовая информация</h4>
+                    <ul>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Конфиденциальность</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Соцсети</h4>
+                    <ul>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VK</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 CarSharing. Все права защищены.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

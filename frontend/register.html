@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | CarSharing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .auth-card {
+            background: #0A0A0A;
+            border-radius: 24px;
+            padding: 48px;
+            border: 1px solid #1A1A1A;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .auth-logo span {
+            background: linear-gradient(135deg, #00DC82 0%, #00FF95 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .auth-header p {
+            color: #666666;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #888888;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            background: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            border-radius: 12px;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-family: 'Manrope', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00DC82;
+            box-shadow: 0 0 0 3px rgba(0, 220, 130, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #555555;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 16px;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 10px;
+            margin: 24px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #00DC82;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            color: #888888;
+            font-size: 13px;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .checkbox-group a {
+            color: #00DC82;
+            text-decoration: none;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 32px;
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .auth-footer a {
+            color: #00DC82;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #666666;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 24px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #00DC82;
+        }
+
+        .password-requirements {
+            background: rgba(0, 220, 130, 0.05);
+
+            border: 1px solid rgba(0, 220, 130, 0.2);
+
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .password-requirements h4 {
+            color: #00DC82;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .password-requirements ul {
+            list-style: none;
+
+            color: #888888;
+            font-size: 13px;
+        }
+
+        .password-requirements li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .password-requirements li::before {
+            content: '✓';
+
+            position: absolute;
+            left: 0;
+            color: #00DC82;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <a href="index.html" class="back-link">
+                ← На главную
+            </a>
+
+            <div class="auth-card">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">CAR<span>SHARING</span></a>
+                    <p>Создайте аккаунт</p>
+                </div>
+
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Имя</label>
+                            <input type="text" id="firstName" placeholder="Иван" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Фамилия</label>
+                            <input type="text" id="lastName" placeholder="Петров" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" placeholder="+7 (999) 000-00-00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="password-requirements">
+                        <h4>Требования к паролю:</h4>
+                        <ul>
+                            <li>Минимум 8 символов</li>
+                            <li>Хотя бы одна заглавная буква</li>
+                            <li>Хотя бы одна цифра</li>
+                        </ul>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+
+                        <label for="terms">
+                            Я согласен с <a href="#">условиями использования</a> и <a href="#">политикой конфиденциальности</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-btn">
+                        Зарегистрироваться
+                    </button>
+
+                    <div id="register-error" style="color: #ff6b6b; font-size: 14px; margin-top: 16px; display: none;"></div>
+                </form>
+
+                <div class="auth-footer">
+                    Уже есть аккаунт? <a href="login.html">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const firstNameInput = document.getElementById('firstName');
+            const lastNameInput = document.getElementById('lastName');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const passwordInput = document.getElementById('password');
+            const errorDiv = document.getElementById('register-error');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                errorDiv.style.display = 'none';
+                errorDiv.textContent = '';
+
+                const userData = {
+                    name: `${firstNameInput.value.trim()} ${lastNameInput.value.trim()}`,
+                    email: emailInput.value.trim(),
+                    phone: phoneInput.value.trim(),
+                    password: passwordInput.value
+                };
+
+                try {
+                    const result = await authAPI.register(userData);
+
+                    if (result.success) {
+                        authHelpers.saveAuthData(result.token, result.user);
+                        authHelpers.redirectToHome();
+                    } else {
+                        if (result.errors) {
+                            errorDiv.textContent = result.errors.map(e => e.message).join(', ');
+                        } else {
+                            errorDiv.textContent = result.message || 'Ошибка регистрации';
+                        }
+                        errorDiv.style.display = 'block';
+                    }
+                } catch (error) {
+                    errorDiv.textContent = 'Ошибка подключения к серверу';
+                    errorDiv.style.display = 'block';
+                    console.error('Ошибка регистрации:', error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы — CarSharing</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tariffs.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">CAR<span>SHARING</span></a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Автомобили</a></li>
+                    <li><a href="tariffs.html" class="active">Тарифы</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+
+                <div style="display: flex; align-items: center; gap: 24px;">
+                    <a href="favorites.html" class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </a>
+                    <a href="login.html" class="btn btn-primary">Войти</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="tariffs-hero">
+        <div class="container">
+            <h1>Наши тарифы</h1>
+            <p>Выберите подходящий тариф для ваших поездок</p>
+        </div>
+    </section>
+
+    <section class="tariffs-section">
+        <div class="container">
+            <div class="tariffs-grid">
+                <div class="tariff-card">
+                    <div class="tariff-header">
+                        <div class="tariff-icon">🚗</div>
+                        <h2>Эконом</h2>
+                        <p class="tariff-description">Для повседневных поездок по городу</p>
+                    </div>
+
+                    <div class="tariff-price">
+                        <span class="price-minute">8 ₽/мин</span>
+                        <span class="price-hour">450 ₽/час</span>
+                        <span class="price-day">2 500 ₽/день</span>
+                    </div>
+
+                    <ul class="tariff-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Компактные автомобили
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Расход до 7 л/100 км
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Кондиционер
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Bluetooth
+                        </li>
+                    </ul>
+
+                    <div class="tariff-cars">
+                        <h3>Автомобили тарифа:</h3>
+                        <div class="car-list">
+                            <div class="car-item">
+                                <img src="images/vw-polo.png" alt="Volkswagen Polo">
+                                <span>Volkswagen Polo</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/hyundai-solaris.png" alt="Hyundai Solaris">
+                                <span>Hyundai Solaris</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/kia-rio.png" alt="Kia Rio">
+                                <span>Kia Rio</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="catalog.html?class=econom" class="btn btn-outline tariff-btn">Выбрать</a>
+                </div>
+
+                <div class="tariff-card popular">
+                    <div class="popular-badge">Популярный</div>
+                    <div class="tariff-header">
+                        <div class="tariff-icon">🚙</div>
+                        <h2>Комфорт</h2>
+                        <p class="tariff-description">Оптимальный баланс цены и комфорта</p>
+                    </div>
+
+                    <div class="tariff-price">
+                        <span class="price-minute">12 ₽/мин</span>
+                        <span class="price-hour">650 ₽/час</span>
+                        <span class="price-day">3 500 ₽/день</span>
+                    </div>
+
+                    <ul class="tariff-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Автомобили C-класса
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Климат-контроль
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Круиз-контроль
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Подогрев сидений
+                        </li>
+                    </ul>
+
+                    <div class="tariff-cars">
+                        <h3>Автомобили тарифа:</h3>
+                        <div class="car-list">
+                            <div class="car-item">
+                                <img src="images/bmw.png" alt="BMW 3 Series">
+                                <span>BMW 3 Series</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/audi-a3.png" alt="Audi A3">
+                                <span>Audi A3</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/mercedes-a.png" alt="Mercedes A-Class">
+                                <span>Mercedes A-Class</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="catalog.html?class=comfort" class="btn btn-primary tariff-btn">Выбрать</a>
+                </div>
+
+                <div class="tariff-card premium">
+                    <div class="tariff-header">
+                        <div class="tariff-icon">🏎️</div>
+                        <h2>Бизнес</h2>
+                        <p class="tariff-description">Премиальный комфорт для особых случаев</p>
+                    </div>
+
+                    <div class="tariff-price">
+                        <span class="price-minute">25 ₽/мин</span>
+                        <span class="price-hour">1 400 ₽/час</span>
+                        <span class="price-day">7 500 ₽/день</span>
+                    </div>
+
+                    <ul class="tariff-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Автомобили E-класса
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Кожаный салон
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Панорамная крыша
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Премиум-аудиосистема
+                        </li>
+                    </ul>
+
+                    <div class="tariff-cars">
+                        <h3>Автомобили тарифа:</h3>
+                        <div class="car-list">
+                            <div class="car-item">
+                                <img src="images/bmw-5.png" alt="BMW 5 Series">
+                                <span>BMW 5 Series</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/mercedes-e.png" alt="Mercedes E-Class">
+                                <span>Mercedes E-Class</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/audi-a6.png" alt="Audi A6">
+                                <span>Audi A6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="catalog.html?class=business" class="btn btn-outline tariff-btn">Выбрать</a>
+                </div>
+
+                <div class="tariff-card exclusive">
+                    <div class="exclusive-badge">Эксклюзив</div>
+                    <div class="tariff-header">
+                        <div class="tariff-icon">✨</div>
+                        <h2>Премиум</h2>
+                        <p class="tariff-description">Роскошь и мощь для максимального удовольствия</p>
+                    </div>
+
+                    <div class="tariff-price">
+                        <span class="price-minute">45 ₽/мин</span>
+                        <span class="price-hour">2 500 ₽/час</span>
+                        <span class="price-day">14 000 ₽/день</span>
+                    </div>
+
+                    <ul class="tariff-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Спорткары и люкс
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Динамика до 4 сек
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Полный привод
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 0a10 10 0 100 20 10 10 0 000-20zm-2 15l-5-5 1.41-1.41L8 12.17l7.59-7.59L17 6l-9 9z"/>
+                            </svg>
+                            Персональный менеджер
+                        </li>
+                    </ul>
+
+                    <div class="tariff-cars">
+                        <h3>Автомобили тарифа:</h3>
+                        <div class="car-list">
+                            <div class="car-item">
+                                <img src="images/tesla.png" alt="Tesla Model S">
+                                <span>Tesla Model S</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/porsche.png" alt="Porsche 911">
+                                <span>Porsche 911</span>
+                            </div>
+                            <div class="car-item">
+                                <img src="images/mercedes-s.png" alt="Mercedes S-Class">
+                                <span>Mercedes S-Class</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="catalog.html?class=premium" class="btn btn-primary tariff-btn">Выбрать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <div class="container">
+            <h2>Сравнение тарифов</h2>
+
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Характеристика</th>
+                            <th>Эконом</th>
+                            <th>Комфорт</th>
+                            <th>Бизнес</th>
+                            <th>Премиум</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Цена от (мин)</td>
+                            <td>8 ₽</td>
+                            <td>12 ₽</td>
+                            <td>25 ₽</td>
+                            <td>45 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Цена от (час)</td>
+                            <td>450 ₽</td>
+                            <td>650 ₽</td>
+                            <td>1 400 ₽</td>
+                            <td>2 500 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Цена от (день)</td>
+                            <td>2 500 ₽</td>
+                            <td>3 500 ₽</td>
+                            <td>7 500 ₽</td>
+                            <td>14 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Залог</td>
+                            <td>3 000 ₽</td>
+                            <td>5 000 ₽</td>
+                            <td>10 000 ₽</td>
+                            <td>25 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Мин. возраст</td>
+                            <td>21 год</td>
+                            <td>21 год</td>
+                            <td>25 лет</td>
+                            <td>25 лет</td>
+                        </tr>
+                        <tr>
+                            <td>Мин. стаж</td>
+                            <td>2 года</td>
+                            <td>2 года</td>
+                            <td>5 лет</td>
+                            <td>5 лет</td>
+                        </tr>
+                        <tr>
+                            <td>Пробег в сутки</td>
+                            <td>200 км</td>
+                            <td>250 км</td>
+                            <td>300 км</td>
+                            <td>Безлимит</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="tariffs-cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Готовы начать поездку?</h2>
+                <p>Зарегистрируйтесь сейчас и получите 300 бонусных рублей на первую поездку</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary">Зарегистрироваться</a>
+                    <a href="catalog.html" class="btn btn-outline">Выбрать автомобиль</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Карьера</a></li>
+                        <li><a href="#">Пресс-центр</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Правовая информация</h4>
+                    <ul>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Конфиденциальность</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Соцсети</h4>
+                    <ul>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VK</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 CarSharing. Все права защищены.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

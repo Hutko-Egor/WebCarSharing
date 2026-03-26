@@ -1,0 +1,346 @@
+.tariffs-hero {
+    padding: 140px 0 80px;
+    text-align: center;
+}
+
+.tariffs-hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.tariffs-hero h1 span {
+    background: linear-gradient(135deg, #00DC82 0%, #00FF95 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tariffs-hero p {
+    color: #666666;
+    font-size: 20px;
+}
+
+.tariffs-section {
+    padding: 80px 0;
+}
+
+.tariffs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.tariff-card {
+    background: #0A0A0A;
+    border: 1px solid #1A1A1A;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.tariff-card:hover {
+    border-color: #2A2A2A;
+    transform: translateY(-8px);
+}
+
+.tariff-card.popular {
+    border-color: #00DC82;
+    background: linear-gradient(135deg, rgba(0, 220, 130, 0.05) 0%, rgba(0, 255, 149, 0.02) 100%);
+}
+
+.tariff-card.premium {
+    border-color: #FFD700;
+}
+
+.tariff-card.exclusive {
+    border-color: #9B59B6;
+}
+
+.popular-badge,
+.exclusive-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.popular-badge {
+    background: linear-gradient(135deg, #00DC82 0%, #00FF95 100%);
+    color: #000000;
+}
+
+.exclusive-badge {
+    background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+    color: #FFFFFF;
+}
+
+.tariff-header {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #1A1A1A;
+}
+
+.tariff-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.tariff-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.tariff-description {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.tariff-price {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background: #050505;
+    border-radius: 16px;
+    border: 1px solid #1A1A1A;
+}
+
+.price-minute {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00DC82 0%, #00FF95 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.price-hour,
+.price-day {
+    font-size: 16px;
+    color: #888888;
+}
+
+.tariff-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tariff-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #CCCCCC;
+    font-size: 15px;
+}
+
+.tariff-features li svg {
+    color: #00DC82;
+    flex-shrink: 0;
+}
+
+.tariff-cars {
+    padding-top: 24px;
+    border-top: 1px solid #1A1A1A;
+}
+
+.tariff-cars h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666666;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.car-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.car-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #050505;
+    border-radius: 12px;
+    border: 1px solid #1A1A1A;
+    transition: border-color 0.3s;
+}
+
+.car-item:hover {
+    border-color: #2A2A2A;
+}
+
+.car-item img {
+    width: 60px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.car-item span {
+    color: #CCCCCC;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tariff-btn {
+    margin-top: auto;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.comparison-section {
+    padding: 80px 0;
+}
+
+.comparison-section h2 {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.comparison-table {
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0A0A0A;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #1A1A1A;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px 24px;
+    text-align: center;
+    border-bottom: 1px solid #1A1A1A;
+}
+
+.comparison-table th {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666666;
+    background: #050505;
+}
+
+.comparison-table th:first-child {
+    text-align: left;
+}
+
+.comparison-table td {
+    color: #CCCCCC;
+    font-size: 15px;
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+    background: rgba(0, 220, 130, 0.05);
+}
+
+.tariffs-cta {
+    padding: 100px 0;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, rgba(0, 220, 130, 0.15) 0%, rgba(0, 255, 149, 0.15) 100%);
+    border: 1px solid rgba(0, 220, 130, 0.2);
+    border-radius: 32px;
+    padding: 80px;
+    text-align: center;
+}
+
+.cta-card h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.cta-card p {
+    color: #999999;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 1400px) {
+    .tariffs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tariffs-hero h1 {
+        font-size: 36px;
+    }
+
+    .tariffs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tariff-card {
+        padding: 24px;
+    }
+
+    .comparison-section h2 {
+        font-size: 28px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .cta-card {
+        padding: 40px;
+    }
+
+    .cta-card h2 {
+        font-size: 28px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}

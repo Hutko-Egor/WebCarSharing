@@ -1,0 +1,151 @@
+.favorites-page {
+    padding: 100px 0 100px;
+    margin-top: 80px;
+}
+
+.favorites-header {
+    margin-bottom: 40px;
+}
+
+.favorites-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.favorites-header p {
+    color: #666666;
+    font-size: 18px;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.favorite-card {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.favorite-card .car-image {
+    position: relative;
+}
+
+.favorite-card .favorite-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    background: rgba(10, 10, 10, 0.9);
+
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #00DC82;
+}
+
+.favorite-btn.active {
+    background: #00DC82;
+    color: #000000;
+}
+
+.availability-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    background: rgba(0, 220, 130, 0.9);
+
+    color: #000000;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.availability-badge.busy {
+    background: rgba(255, 184, 0, 0.9);
+
+    color: #000000;
+}
+
+.empty-favorites {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.empty-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    color: #333333;
+}
+
+.empty-favorites h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.empty-favorites p {
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recommendations {
+    padding-top: 60px;
+    border-top: 1px solid #1A1A1A;
+}
+
+.recommendations h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #0A0A0A;
+    border: 1px solid #1A1A1A;
+    border-radius: 12px;
+    color: #666666;
+    transition: all 0.3s;
+}
+
+.nav-icon:hover {
+    border-color: #00DC82;
+    color: #00DC82;
+}
+
+.nav-icon.active {
+    background: #00DC82;
+    border-color: #00DC82;
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+
+    .favorites-header h1 {
+        font-size: 32px;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+}

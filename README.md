@@ -177,6 +177,51 @@
 
 ---
 
+## Модели данных
+
+### User (Пользователи)
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| `id` | integer | Уникальный идентификатор  |
+| `email` |string | Email адрес |
+| `password` |string | Хеш пароля  |
+| `Name` |string | Имя пользователя  |
+| `phone` |string | Номер телефона |
+| `balance` | float | Баланс счёта  |
+| `rating` | float | Рейтинг пользователя  |
+| `createdAt` | string | Дата регистрации |
+
+### Car (Автомобили)
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| `id` | integer | Уникальный идентификатор  |
+| `name` |string | Название автомобиля |
+| `description` |string | Полное описание |
+| `pricePerHour` | float | Цена за час аренды |
+| `status` |string | Статус: `available`, `busy`, `maintenance`, `reserved` |
+| `createdAt` | string | Дата добавления |
+
+
+### Booking (Бронирования)
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| `id` | integer | Уникальный идентификатор |
+| `userId` | integer | ID пользователя  |
+| `carId` | integer | ID автомобиля  |
+| `tariffId` | integer | ID тарифа |
+| `startDate` | string | Дата начала аренды |
+| `endDate` | string | Дата окончания аренды |
+| `endLocation` |string | Место окончания аренды |
+| `totalPrice` | float | Итоговая стоимость |
+| `paidAmount` | float | Оплаченная сумма |
+| `comment` |string | Комментарий пользователя |
+| `createdAt` | string | Дата создания бронирования |
+
+---
+
 ## API Endpoints
 
 ### Авторизация
@@ -228,6 +273,4 @@
 | GET | `/api/favorites` | Получить избранные автомобили |
 | POST | `/api/favorites/toggle` | Добавить/удалить из избранного |
 | DELETE | `/api/favorites/:carId` | Удалить из избранного |
-
-
 

@@ -90,15 +90,6 @@
     </div>
   </section>
 
-  <section class="cta">
-    <div class="container">
-      <div class="cta-card">
-        <h2>Готовы к поездке?</h2>
-        <p>Скачайте приложение и получите 30 минут бесплатно</p>
-        <button class="btn btn-primary">Скачать приложение</button>
-      </div>
-    </div>
-  </section>
 </template>
 
 <script setup>

@@ -14,7 +14,7 @@
           <aside class="filters">
             <div class="filter-header">
               <h3>Фильтры</h3>
-              <button class="reset-filters" @click="resetFilters">Сбросить</button>
+              <button class="reset-filters" @click="resetFilters" :disabled="loading">Сбросить</button>
             </div>
 
             <div class="filter-group">
@@ -23,16 +23,6 @@
                 <label class="checkbox" v-for="cls in carClasses" :key="cls.value">
                   <input type="checkbox" v-model="selectedClasses" :value="cls.value">
                   <span>{{ cls.label }}</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="filter-group">
-              <label>Тип двигателя</label>
-              <div class="checkbox-group">
-                <label class="checkbox" v-for="engine in engineTypes" :key="engine.value">
-                  <input type="checkbox" v-model="selectedEngines" :value="engine.value">
-                  <span>{{ engine.label }}</span>
                 </label>
               </div>
             </div>
@@ -47,52 +37,23 @@
               </div>
             </div>
 
-            <button class="btn btn-primary apply-filters">
-              Показать {{ filteredCars.length }} авто
-            </button>
           </aside>
 
           <main class="catalog-content">
             <div class="catalog-header">
               <div class="sort-options">
                 <span>Сортировать:</span>
-                <select class="sort-select" v-model="sortBy">
+                <select class="sort-select" v-model="sortBy" :disabled="loading">
                   <option value="popular">По популярности</option>
                   <option value="price-asc">По цене (возрастание)</option>
                   <option value="price-desc">По цене (убывание)</option>
                   <option value="newest">Новинки</option>
                 </select>
               </div>
-
-              <div class="view-toggle">
-                <button
-                  class="view-btn"
-                  :class="{ active: viewMode === 'grid' }"
-                  @click="viewMode = 'grid'"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <rect x="2" y="2" width="7" height="7" rx="1"/>
-                    <rect x="11" y="2" width="7" height="7" rx="1"/>
-                    <rect x="2" y="11" width="7" height="7" rx="1"/>
-                    <rect x="11" y="11" width="7" height="7" rx="1"/>
-                  </svg>
-                </button>
-                <button
-                  class="view-btn"
-                  :class="{ active: viewMode === 'list' }"
-                  @click="viewMode = 'list'"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                    <rect x="2" y="3" width="16" height="4" rx="1"/>
-                    <rect x="2" y="9" width="16" height="4" rx="1"/>
-                    <rect x="2" y="15" width="16" height="4" rx="1"/>
-                  </svg>
-                </button>
-              </div>
             </div>
 
-            <div v-if="loading" class="loading-state">
-              <p>Загрузка автомобилей...</p>
+            <div v-if="loading" class="fleet-grid" :class="`view-${viewMode}`">
+              <SkeletonCarCard v-for="i in itemsPerPage" :key="i" />
             </div>
 
             <div v-else-if="sortedCars.length === 0" class="empty-state">
@@ -123,32 +84,27 @@
                     <span class="spec" v-if="car.seats">👥 {{ car.seats }} мест</span>
                   </div>
                   <div class="car-price">
-                    <span class="price">{{ car.tariff?.pricePerMinute || 0 }} BYN <span>/ мин</span></span>
+                    <span class="price">{{ car.tariff?.pricePerMinute || 0 }} BYN <span>/ час</span></span>
                     <router-link :to="`/car/${car.id}`" class="btn btn-outline btn-sm">Подробнее</router-link>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="pagination" v-if="totalPages > 1">
+            <div class="pagination" v-if="totalPages > 1 && !loading">
+              <button class="page-btn arrow" :disabled="currentPage === 1" @click="currentPage--">&larr;</button>
+              
               <button
+                v-for="page in displayedPages"
+                :key="page"
                 class="page-btn"
-                :class="{ active: currentPage === 1 }"
-                @click="currentPage = 1"
-              >1</button>
-              <button
-                v-if="totalPages > 1"
-                class="page-btn"
-                :class="{ active: currentPage === 2 }"
-                @click="currentPage = 2"
-              >2</button>
-              <button
-                v-if="totalPages > 2"
-                class="page-btn"
-                :class="{ active: currentPage === 3 }"
-                @click="currentPage = 3"
-              >3</button>
-              <button class="page-btn">→</button>
+                :class="{ active: currentPage === page }"
+                @click="currentPage = page"
+              >
+                {{ page }}
+              </button>
+
+              <button class="page-btn arrow" :disabled="currentPage === totalPages" @click="currentPage++">&rarr;</button>
             </div>
           </main>
         </div>
@@ -158,10 +114,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCars, useFavorites } from '../composables/useApi'
 import { useAuthStore } from '../composables/useAuthStore'
+import SkeletonCarCard from '../components/SkeletonCarCard.vue'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -173,7 +130,6 @@ const loading = ref(true)
 const favoriteIds = ref(new Set())
 
 const selectedClasses = ref([])
-const selectedEngines = ref([])
 const selectedTransmissions = ref([])
 const sortBy = ref('popular')
 const viewMode = ref('grid')
@@ -185,26 +141,15 @@ const carClasses = [
   { value: 'comfort', label: 'Комфорт' },
   { value: 'business', label: 'Бизнес' },
   { value: 'premium', label: 'Премиум' },
-]
-
-const engineTypes = [
-  { value: 'petrol', label: 'Бензин' },
-  { value: 'diesel', label: 'Дизель' },
-  { value: 'electric', label: 'Электро' },
-  { value: 'hybrid', label: 'Гибрид' },
-]
-
+];
 const transmissions = [
   { value: 'automatic', label: 'Автомат' },
   { value: 'manual', label: 'Механика' },
-]
-
-const priceRange = computed(() => ({ min: 5, max: 50 }))
+];
 
 const filteredCars = computed(() => {
   return allCars.value.filter(car => {
     if (selectedClasses.value.length > 0 && !selectedClasses.value.includes(car.carType)) return false
-    if (selectedEngines.value.length > 0 && !selectedEngines.value.includes(car.engine)) return false
     if (selectedTransmissions.value.length > 0 && !selectedTransmissions.value.includes(car.transmission)) return false
     return true
   })
@@ -214,28 +159,46 @@ const sortedCars = computed(() => {
   const cars = [...filteredCars.value]
   const getPrice = (c) => c.tariff?.pricePerMinute || 0
   switch (sortBy.value) {
-    case 'price-asc':
-      return cars.sort((a, b) => getPrice(a) - getPrice(b))
-    case 'price-desc':
-      return cars.sort((a, b) => getPrice(b) - getPrice(a))
-    case 'newest':
-      return cars.sort((a, b) => (b.year || 0) - (a.year || 0))
-    case 'popular':
-    default:
-      return cars
+    case 'price-asc': return cars.sort((a, b) => getPrice(a) - getPrice(b))
+    case 'price-desc': return cars.sort((a, b) => getPrice(b) - getPrice(a))
+    case 'newest': return cars.sort((a, b) => (b.year || 0) - (a.year || 0))
+    default: return cars
   }
 })
 
 const totalPages = computed(() => Math.ceil(sortedCars.value.length / itemsPerPage))
+
+const displayedPages = computed(() => {
+  const total = totalPages.value
+  const current = currentPage.value
+  const maxVisible = 5
+  
+  if (total <= maxVisible) {
+    return Array.from({ length: total }, (_, i) => i + 1)
+  }
+
+  let start = Math.max(current - Math.floor(maxVisible / 2), 1)
+  let end = start + maxVisible - 1
+
+  if (end > total) {
+    end = total
+    start = end - maxVisible + 1
+  }
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+})
 
 const paginatedCars = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   return sortedCars.value.slice(start, start + itemsPerPage)
 })
 
+// Сброс на 1 страницу при смене фильтров
+watch([selectedClasses, selectedTransmissions], () => {
+  currentPage.value = 1
+})
+
 function resetFilters() {
   selectedClasses.value = []
-  selectedEngines.value = []
   selectedTransmissions.value = []
   sortBy.value = 'popular'
   currentPage.value = 1
@@ -254,6 +217,7 @@ async function toggleFavorite(carId) {
 }
 
 onMounted(async () => {
+  loading.value = true
   try {
     const result = await carsApi.getAll()
     if (result.success) {
@@ -262,7 +226,7 @@ onMounted(async () => {
   } catch (e) {
     console.error('Failed to load cars:', e)
   } finally {
-    loading.value = false
+    setTimeout(() => { loading.value = false }, 600)
   }
 
   if (auth.isAuthenticated) {
@@ -277,3 +241,58 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style scoped>
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.page-btn {
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid #252525;
+  background: #1c1c1c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn.active {
+  background-color: #1ea35a;
+  border-color: #34dbac;
+  color: white;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-btn.arrow {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.apply-filters:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 600;
+}
+</style>

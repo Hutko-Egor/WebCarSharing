@@ -8,7 +8,6 @@
           <ul class="nav-links">
             <li><router-link to="/">Главная</router-link></li>
             <li><router-link to="/catalog">Автомобили</router-link></li>
-            <li><router-link to="/tariffs">Тарифы</router-link></li>
             <li><router-link to="/faq">FAQ</router-link></li>
           </ul>
 

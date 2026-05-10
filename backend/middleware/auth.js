@@ -27,6 +27,7 @@ function authMiddleware(req, res, next) {
     
     // Добавляем данные пользователя в запрос
     req.user = decoded;
+    req.userId = decoded.userId;
     
     next();
   } catch (error) {

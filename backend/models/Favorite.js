@@ -36,6 +36,8 @@ async function findByUserId(userId) {
   return favorites;
 }
 
+
+
 // Найти конкретную запись избранного
 async function find(userId, carId) {
   const db = getDatabase();
@@ -60,7 +62,7 @@ async function add(userId, carId) {
   if (!db) throw new Error('База данных не инициализирована');
 
   // Проверяем, существует ли уже такая запись
-  const existing = find(userId, carId);
+  const existing = await find(userId, carId);
   if (existing) {
     return existing;
   }

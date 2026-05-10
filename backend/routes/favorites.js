@@ -6,23 +6,17 @@ const Car = require('../models/Car');
 const Tariff = require('../models/Tariff');
 const authMiddleware = require('../middleware/auth');
 
-// Валидация
-const toggleFavoriteValidation = [
-  body('carId')
-    .isInt({ min: 1 })
-    .withMessage('Неверный ID автомобиля')
-];
 
 // Получить избранные автомобили текущего пользователя
-router.get('/', authMiddleware, (req, res) => {
+router.get('/', authMiddleware, async (req, res) => {
   try {
-    const favorites = Favorite.findByUserId(req.user.userId);
-    
+    const favorites = await Favorite.findByUserId(req.user.userId);
+
     // Получаем информацию об автомобилях
     const carsWithTariff = favorites.map(fav => {
       const car = Car.findById(fav.carId);
       if (!car) return null;
-      
+
       const tariff = Tariff.findById(car.tariffId);
       return {
         ...car.toJSON(),
@@ -45,7 +39,7 @@ router.get('/', authMiddleware, (req, res) => {
 });
 
 // Добавить/удалить из избранного
-router.post('/toggle', authMiddleware, toggleFavoriteValidation, (req, res) => {
+router.post('/toggle', authMiddleware, async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -56,7 +50,9 @@ router.post('/toggle', authMiddleware, toggleFavoriteValidation, (req, res) => {
     }
 
     const { carId } = req.body;
-    
+
+    const userId = req.userId;
+
     // Проверка существования автомобиля
     const car = Car.findById(carId);
     if (!car) {
@@ -66,7 +62,7 @@ router.post('/toggle', authMiddleware, toggleFavoriteValidation, (req, res) => {
       });
     }
 
-    const result = Favorite.toggle(req.user.userId, carId);
+    const result = await Favorite.toggle(userId, carId);
 
     res.json({
       success: true,

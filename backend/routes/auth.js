@@ -76,8 +76,9 @@ router.post('/register', registerValidation, async (req, res) => {
   } catch (error) {
     console.error('Ошибка регистрации:', error);
     res.status(500).json({
-      success: false,
-      message: 'Ошибка при регистрации'
+        success: false,
+        message: 'Ошибка сервера',
+        debug_info: error.message // <--- Добавь эту строку временно
     });
   }
 });
@@ -136,9 +137,9 @@ router.post('/login', loginValidation, async (req, res) => {
 });
 
 // Получение текущего пользователя
-router.get('/me', authMiddleware, (req, res) => {
+router.get('/me', authMiddleware, async (req, res) => {
   try {
-    const user = User.findById(req.user.userId);
+    const user = await User.findById(req.user.userId);
     if (!user) {
       return res.status(404).json({
         success: false,
